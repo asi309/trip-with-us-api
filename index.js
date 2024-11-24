@@ -1,6 +1,7 @@
 const { resolve } = require('node:path');
 
 const express = require('express');
+const cors = require('cors');
 
 const { hotels } = require('./hotels');
 const {
@@ -11,6 +12,8 @@ const {
 
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 app.get('/hotels/sort/pricing', (req, res) => {
   const { pricing } = req.query;
